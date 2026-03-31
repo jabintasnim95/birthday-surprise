@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Love!</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    h1 {
+        font-size: 3rem;
+        color: #fff;
+        text-shadow: 2px 2px #ff6f91;
+        margin-bottom: 20px;
+    }
+
+    .typing {
+        font-size: 1.5rem;
+        color: #fff;
+        text-shadow: 1px 1px #c70039;
+        min-height: 40px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        margin-top: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        background-color: #fff;
+        color: #ff6f91;
+        transition: transform 0.3s, background-color 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background-color: #ffe5e9;
+    }
+
+    #surpriseMessage {
+        font-size: 1.6rem;
+        color: #ff6f91; 
+        text-shadow: 2px 2px 5px #000;
+        text-align: center;
+        margin-top: 20px;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        max-width: 90%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .heart {
+        position: absolute;
+        bottom: -100px;
+        width: 40px;
+        height: 40px;
+        background-color: red;
+        transform: rotate(-45deg);
+        animation: rise 5s infinite linear;
+    }
+
+    .heart:before,
+    .heart:after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: red;
+        border-radius: 50%;
+    }
+
+    .heart:before { top: -20px; left: 0; }
+    .heart:after { left: 20px; top: 0; }
+
+    @keyframes rise {
+        0% { bottom: -50px; opacity: 0; transform: translateX(0) rotate(0deg); }
+        50% { opacity: 1; }
+        100% { bottom: 100vh; opacity: 0; transform: translateX(50px) rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+
+<h1>Happy Birthday, My Love! 🎉❤️</h1>
+<div class="typing" id="typing"></div>
+<button onclick="showSurprise()">Click for Surprise! 💖</button>
+<div id="surpriseMessage">
+    Assalamualaikum my love, 💖<br>
+    I hope you’re feeling happy and well. Today is your special day! 😙<br>
+    I pray to Allah that you spend every birthday joyfully, and that I can be by your side for all your future birthdays.<br><br>
+    Sometimes I act rude, but I’m not really 🥲. I love you so much 😚<br>
+    Even if you’re busy, I just want to make you happy.<br><br>
+    May Allah bless you with a long life and endless happiness.<br>
+    I Love You Soooo Much Jan 😚 <br>
+    <strong>Happy Birthday, my love! 🎉❤️</strong>
+</div>
+
+<!-- Music auto-play -->
+<audio id="music" autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    // Typing effect
+    const message = "I hope your day is as amazing as you are! 😘🥰";
+    let index = 0;
+    const typingElement = document.getElementById("typing");
+
+    function typeMessage() {
+        if (index < message.length) {
+            typingElement.innerHTML += message.charAt(index);
+            index++;
+            setTimeout(typeMessage, 100);
+        }
+    }
+    typeMessage();
+
+    // Show surprise message in page
+    function showSurprise() {
+        const surprise = document.getElementById("surpriseMessage");
+        surprise.style.opacity = 1;
+        surprise.scrollIntoView({behavior: "smooth"});
+    }
+
+    // Create floating hearts
+    function createHearts() {
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+            heart.style.backgroundColor = ['#ff6f91','#ffb347','#ffcc70','#70c1b3','#c70039'][Math.floor(Math.random() * 5)];
+            document.body.appendChild(heart);
+        }
+    }
+
+    createHearts();
+</script>
+
+</body>
+</html>
